@@ -1,0 +1,28 @@
+SQL 1:
+
+SELECT gender, avg(duration)
+FROM calls INNER JOIN customers
+ON calls.caller_id = customers.id OR calls.callee_id = customers.id
+GROUP BY gender;
+
+
+
+
+
+
+
+
+SQL 2:
+
+SELECT count(*) from parents INNER JOIN children
+  ON parents.NAME LIKE concat('%', children.FAMILY_NAME, '%')
+
+   Running time would depend on parents name that is similar to children's family name.
+   This means that if John is both a surname and first name, it would come up as equal.
+   I am no sure what this could mean regarding run time. I am not sure what it would mean regarding Big O
+
+
+SELECT count(*) from parents INNER JOIN children
+  ON parents.FAMILY_NAME = children.FAMILY_NAME
+
+   Running time would be O(n) as this comparison would depend solely on the number of records in the databases.
